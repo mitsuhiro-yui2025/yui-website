@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動実績の一例 - Welfare×IT 結（Yui）</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #FFFDF5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            background-color: #FFFDF5;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><filter id="blur" x="0" y="0"><feGaussianBlur stdDeviation="10" /></filter></defs><rect width="100%" height="100%" fill="%23FFFDF5"/><g filter="url(%23blur)"><circle cx="70%" cy="30%" r="15%" fill="%23C5D86D" opacity="0.1"/><circle cx="30%" cy="70%" r="20%" fill="%23E86C3A" opacity="0.1"/></g></svg>');
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .slide-content {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .title-container {
+            position: relative;
+        }
+        .title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+            position: relative;
+            z-index: 2;
+        }
+        .title-eng {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #E86C3A;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+        .accent-line {
+            height: 5px;
+            width: 180px;
+            background-color: #E86C3A;
+            margin-bottom: 2.5rem;
+        }
+        .logo-small {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .logo-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 2rem;
+        }
+        .left-column {
+            width: 40%;
+        }
+        .right-column {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .achievement-item {
+            background: linear-gradient(to right, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #E86C3A;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .achievement-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+        .achievement-icon {
+            min-width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(232, 108, 58, 0.1);
+            color: #E86C3A;
+            margin-right: 1.2rem;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            border: 2px solid rgba(255,255,255,0.8);
+        }
+        .achievement-text {
+            font-weight: 600;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+        .achievement-subtext {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        .image-container {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        .speaker-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .image-container:hover .speaker-image {
+            transform: scale(1.02);
+        }
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+            padding: 30px 20px 20px;
+            color: white;
+        }
+        .event-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .event-title img {
+            height: 28px;
+            margin-right: 10px;
+        }
+        .event-location {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .event-date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(232, 108, 58, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .kintone-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .stat-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            gap: 15px;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            padding: 15px;
+            flex: 1;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 3px solid #C5D86D;
+        }
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #E86C3A;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 500;
+        }
+        .caption {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+        .btn-more {
+            display: inline-block;
+            background-color: #E86C3A;
+            color: white;
+            font-weight: 500;
+            padding: 8px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(232, 108, 58, 0.3);
+            margin-top: 10px;
+        }
+        .btn-more:hover {
+            background-color: #D55B29;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(232, 108, 58, 0.4);
+        }
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1rem;
+            color: #999;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .welfare-it-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #E86C3A 0%, #C5D86D 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            vertical-align: middle;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-content">
+            <div class="header">
+                <div class="title-container">
+                    <div class="title-eng">Our Achievements</div>
+                    <h1 class="title">活動実績 <span class="welfare-it-tag">Welfare×IT</span></h1>
+                </div>
+                <div class="logo-small">
+                    <img src="https://page.genspark.site/v1/base64_upload/5e7dc3802331ee21ab494093df468d51" alt="結（Yui）ロゴ">
+                </div>
+            </div>
+            <div class="accent-line"></div>
+            
+            <div class="content-wrapper">
+                <div class="left-column">
+                    <ul class="achievement-list">
+                        <li class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div>
+                                <div class="achievement-text">kintone hive 登壇</div>
+                                <div class="achievement-subtext">福祉DXの先進事例として紹介</div>
+                            </div>
+                        </li>
+                        <li class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <div class="achievement-text">200+ アプリ開発</div>
+                                <div class="achievement-subtext">法人内での業務改善を実現</div>
+                            </div>
+                        </li>
+                        <li class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <div class="achievement-text">福祉職30名以上指導</div>
+                                <div class="achievement-subtext">DXリーダー育成プログラム</div>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="stat-container">
+                        <div class="stat-box">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">福祉現場経験（年）</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">セミナー登壇（回）</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="image-container">
+                        <img src="https://page.genspark.site/v1/base64_upload/0a452ccd441d8e88872fdff26c33328b" alt="kintone hive 登壇の様子" class="speaker-image">
+                        <div class="event-date">2022年</div>
+                        <div class="image-overlay">
+                            <div class="event-title">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTAwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNOTAgMTJMMTAwIDZWMThMOTAgMTJaIiBmaWxsPSIjRkZGRjAwIi8+CjxwYXRoIGQ9Ik04MCA2SDkwVjE4SDgwVjZaIiBmaWxsPSIjRkZGRjAwIi8+CjxwYXRoIGQ9Ik03MCA2SDgwVjE4SDcwVjZaIiBmaWxsPSIjRkZGRjAwIi8+CjxwYXRoIGQ9Ik02MCA2SDcwVjE4SDYwVjZaIiBmaWxsPSIjRkZGRjAwIi8+CjxwYXRoIGQ9Ik00OCA2SDU0VjEySDQ4VjZaIiBmaWxsPSIjRkZGRjAwIi8+CjxwYXRoIGQ9Ik00OCAxMkg1NFYxOEg0OFYxMloiIGZpbGw9IiNGRkZGMDAiLz4KPHBhdGggZD0iTTM2IDZINDJWMTJIMzZWNloiIGZpbGw9IiNGRkZGMDAiLz4KPHBhdGggZD0iTTM2IDEySDQyVjE4SDM2VjEyWiIgZmlsbD0iI0ZGRkYwMCIvPgo8cGF0aCBkPSJNMjQgNkgzMFYxMkgyNFY2WiIgZmlsbD0iI0ZGRkYwMCIvPgo8cGF0aCBkPSJNMjQgMTJIMzBWMThIMjRWMTJaIiBmaWxsPSIjRkZGRjAwIi8+CjxwYXRoIGQ9Ik0xMiA2SDE4VjEySDEyVjZaIiBmaWxsPSIjRkZGRjAwIi8+CjxwYXRoIGQ9Ik0xMiAxMkgxOFYxOEgxMlYxMloiIGZpbGw9IiNGRkZGMDAiLz4KPHBhdGggZD0iTTAgNkg2VjEySDBWNloiIGZpbGw9IiNGRkZGMDAiLz4KPHBhdGggZD0iTTAgMTJINlYxOEgwVjEyWiIgZmlsbD0iI0ZGRkYwMCIvPgo8L3N2Zz4K" alt="kintone hive logo">
+                                kintone hive 2022
+                            </div>
+                            <div class="event-location">名古屋 - 福祉DX事例講演</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="caption">
+                Welfare×ITの成功事例を様々な場所で発信しています<br>
+                <a href="#" class="btn-more" onclick="event.preventDefault();">他の実績を見る <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            
+            <div class="page-number">4/6</div>
+        </div>
+    </div>
+</body>
+</html>
